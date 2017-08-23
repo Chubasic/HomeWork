@@ -22,6 +22,7 @@ using namespace std;
 Поміняти місцями перший рядок з останнім, другий з передостаннім і т.д. (реверс матриці по рядках). Вивести новоутворену матрицю */
 
 void Matrix();
+void Swap(int& i, int& j);
 void Up(int inp, int inArr[2][2]);
 void Down(int inp, int inArr[2][2]);
 void Left(int inp, int inArr[2][2]);
@@ -98,28 +99,39 @@ void Matrix()
 }
 void Up(int inp, int inArr[2][2])
 {
+}
+
+void Down(int inp, int inArr[2][2])
+{
+}
+void Left(int inp, int inArr[2][2])
+{
+}
+void Rigth(int inp, int inArr[2][2])
+{
 	int const x = 2, y = 2;
-	int outArr[x][y];
-	for (int v = 0; v < x; v++)
+	int last = x - 1;
+	for (int i = 0; i < inp; i++)
 	{
-		for (int g = 0; g < y; g++)
+		for (int v = 0; v < last; v++)
 		{
-			/*Watch. Understand
+			Swap(inArr[v][v], inArr[v][last]);
+			Swap(inArr[v][v], inArr[last][last]);
+			Swap(inArr[v][v], inArr[last][v]);
+			/*
 			https://www.youtube.com/watch?v=Jtu6dJ0Cb94
+			Якби не цей штемп... капець.
 			*/
 		}
 	}
-	PrintOut(outArr);
+	PrintOut(inArr);
 }
 
-void Down(int inp, int inArr[2][6])
+void Swap(int& i, int& j)
 {
-}
-void Left(int inp, int inArr[2][6])
-{
-}
-void Rigth(int inp, int inArr[2][6])
-{
+	int temp = i;
+	i = j;
+	j = temp;
 }
 
 void PrintOut(int printArr[2][2])
